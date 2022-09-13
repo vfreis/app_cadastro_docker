@@ -59,6 +59,8 @@ def signUp():
     except Exception as e:
         return json.dumps({'error':str(e)})
     finally:
+        conn = mysql.connect()
+        cursor = conn.cursor()
         cursor.close() 
         conn.close()
 
